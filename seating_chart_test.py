@@ -1,16 +1,9 @@
+# Seamus Johnston, 2018
 import pytest
 import re
 from seating_chart import SeatingChart
 
 class TestSeatingChart():
-
-### Helper ###
-  # def populate(self,chart,res):
-  #   res = res.split()
-  #   for x in res:
-  #     r,c = re.match(r"\s*[Rr]([0-9]+)[Cc]([0-9]+)\s*",x).group(1,2)
-  #     seat = (int(r),int(c))
-  #     chart.reserve(seat)
 
 ### class SeatingChart ###
   def test_create_new_seating_chart(self):
@@ -19,17 +12,20 @@ class TestSeatingChart():
     assert chart._rows == 10
     assert chart._cols == 11
     assert chart._reserved_seats == {}
-    assert chart._sold_out == False
+    assert chart.sold_out == False
+    assert chart.number_reserved == 0
+    assert chart.number_available == 10 * 11
+
+### def initialize(self, res_lst) ###
+  def test_initializing_with_out_of_bound_values(self):
+    chart = SeatingChart(5,5)
+    with pytest.raises(KeyError):
+      chart.initialize([(1,2),(1,7)])
 
 ### def _get_key(self,r,c) ###
   def test_cant_change_hash_formula_by_accident(self):
     chart = SeatingChart(10,11)
     assert chart._get_key(12,23) == 23012
-
-### def _parse_key(self,key) ###
-  # def test_get_seat(self):
-  #   chart = SeatingChart(10,11)
-  #   assert chart._parse_key(23012) == (12,23)
 
 ### def _get_taxi(self,a,b) ###
   def test_get_taxi_odd_cols(self):
@@ -47,8 +43,8 @@ class TestSeatingChart():
 ### def _individual(self,seat) ###
   def test_reserving_a_seat_once(self):
     chart = SeatingChart(5,5)
-    expected = [(2,8)]
-    actual = chart.reserve((2,8))
+    expected = [(2,5)]
+    actual = chart.reserve((2,5))
     assert actual == expected
 
   def test_reserving_a_seat_twice(self):
