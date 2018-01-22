@@ -10,8 +10,8 @@ final class SeatingChart
     private $INITIALIZATION_ERROR = "Seat (%s,%s) could not be reserved.";
 
     public $sold_out;
-    private $number_reserved;
-    private $number_available;
+    public $number_reserved;
+    public $number_available;
     private $rows;
     private $cols;
     private $reserved_seats;
