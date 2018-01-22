@@ -25,7 +25,7 @@ class TestSeatingChart():
 ### def _get_key(self,r,c) ###
   def test_cant_change_hash_formula_by_accident(self):
     chart = SeatingChart(10,11)
-    assert chart._get_key(12,23) == 23012
+    assert chart._get_key(12,23) == 2300012
 
 ### def _get_taxi(self,a,b) ###
   def test_get_taxi_odd_cols(self):
@@ -64,28 +64,28 @@ class TestSeatingChart():
   def test_find_best_four_seats_in_empty_row_of_odd_columns(self):
     chart = SeatingChart(1,9)
     chart._find_seats(4)
-    expected = {3001: 1, 4001: 1, 5001: 1, 6001: 1}
+    expected = {300001: 1, 400001: 1, 500001: 1, 600001: 1}
     actual = chart._reserved_seats
     assert expected == actual
     
   def test_find_best_four_seats_in_empty_row_of_even_columns(self):
     chart = SeatingChart(1,10)
     chart._find_seats(4)
-    expected = {4001: 1, 5001: 1, 6001: 1, 7001: 1}
+    expected = {400001: 1, 500001: 1, 600001: 1, 700001: 1}
     actual = chart._reserved_seats
     assert expected == actual
 
   def test_find_best_five_seats_in_empty_row_of_odd_columns(self):
     chart = SeatingChart(1,9)
     chart._find_seats(5)
-    expected = {3001: 1, 4001: 1, 5001: 1, 6001: 1, 7001: 1}
+    expected = {300001: 1, 400001: 1, 500001: 1, 600001: 1, 700001: 1}
     actual = chart._reserved_seats
     assert expected == actual
 
   def test_find_best_five_seats_in_empty_row_of_even_columns(self):
     chart = SeatingChart(1,10)
     chart._find_seats(5)
-    expected = {3001: 1, 4001: 1, 5001: 1, 6001: 1, 7001: 1}
+    expected = {300001: 1, 400001: 1, 500001: 1, 600001: 1, 700001: 1}
     actual = chart._reserved_seats
     assert expected == actual
 
@@ -94,9 +94,9 @@ class TestSeatingChart():
     chart.initialize([(1,1), (1,2), (1,3), (1,4), (1,5), (1,6), (1,7), (1,8),
                      (1,9), (1,10)])
     chart._find_seats(5)
-    expected = {4001: 1, 2001: 1, 1001: 1, 9001: 1, 7001: 1, 6001: 1, 5001: 1,
-                3001: 1, 10001: 1, 8001: 1, 3002: 1, 4002: 1, 5002: 1, 6002: 1,
-                7002: 1}
+    expected = {400001: 1, 200001: 1, 100001: 1, 900001: 1, 700001: 1, 600001: 1, 500001: 1,
+                300001: 1, 1000001: 1, 800001: 1, 300002: 1, 400002: 1, 500002: 1, 600002: 1,
+                700002: 1}
     actual = chart._reserved_seats
     assert expected == actual
 
@@ -115,9 +115,9 @@ class TestSeatingChart():
     chart._find_seats(3)
     chart._find_seats(1)
     chart._find_seats(10)
-    expected = {3002: 1, 4001: 1, 4002: 1, 5001: 1, 5002: 1, 5003: 1, 6001: 1,
-                6002: 1, 6003: 1, 7001: 1, 7002: 1, 7003: 1, 8001: 1, 9001: 1,
-                9003: 1, 10003: 1}
+    expected = {300002: 1, 400001: 1, 400002: 1, 500001: 1, 500002: 1, 500003: 1, 600001: 1,
+                600002: 1, 600003: 1, 700001: 1, 700002: 1, 700003: 1, 800001: 1, 900001: 1,
+                900003: 1, 1000003: 1}
     actual = chart._reserved_seats
     assert expected == actual
 

@@ -45,7 +45,7 @@ final class SeatingChart
     {
         $r = $seat[0];
         $c = $seat[1];
-        return $c * 1000 + $r;
+        return $c * 100000 + $r;
     }
 
     /* Return the Manhattan Distance from stage center of a given seat. */

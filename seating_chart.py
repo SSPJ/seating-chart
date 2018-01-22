@@ -25,7 +25,7 @@ class SeatingChart:
 
   def _get_key(self,r,c):
     """ Hash function. """
-    return c * 1000 + r
+    return c * 100000 + r
 
   def _get_taxi(self,seat):
     """ Return the Manhattan Distance from stage center of a given seat. """

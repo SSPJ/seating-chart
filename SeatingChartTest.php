@@ -35,7 +35,7 @@ class SeatingChartTest extends PHPUnit\Framework\TestCase
         // $this->markTestSkipped();
         $chart = new SeatingChart(10,11);
         $accessGetKey = function($seat) { return $this->getKey($seat); };
-        $this->assertEquals($accessGetKey->call($chart, [12,23]), 23012);
+        $this->assertEquals($accessGetKey->call($chart, [12,23]), 2300012);
     }
 
     /* function getTaxi($seat) */
@@ -98,7 +98,7 @@ class SeatingChartTest extends PHPUnit\Framework\TestCase
         $chart = new SeatingChart(1,9);
         $accessFindSeats = function($group) { return $this->findSeats($group); };
         $accessFindSeats->call($chart, 4);
-        $expected = array(3001 => 1, 4001 => 1, 5001 => 1, 6001 => 1);
+        $expected = array(300001 => 1, 400001 => 1, 500001 => 1, 600001 => 1);
         $this->assertAttributeEquals($expected, 'reserved_seats', $chart);
     }
 
@@ -108,7 +108,7 @@ class SeatingChartTest extends PHPUnit\Framework\TestCase
         $chart = new SeatingChart(1,10);
         $accessFindSeats = function($group) { return $this->findSeats($group); };
         $accessFindSeats->call($chart, 4);
-        $expected = array(4001 => 1, 5001 => 1, 6001 => 1, 7001 => 1);
+        $expected = array(400001 => 1, 500001 => 1, 600001 => 1, 700001 => 1);
         $this->assertAttributeEquals($expected, 'reserved_seats', $chart);
     }
 
@@ -118,7 +118,7 @@ class SeatingChartTest extends PHPUnit\Framework\TestCase
         $chart = new SeatingChart(1,9);
         $accessFindSeats = function($group) { return $this->findSeats($group); };
         $accessFindSeats->call($chart, 5);
-        $expected = array(3001 => 1, 4001 => 1, 5001 => 1, 6001 => 1, 7001 => 1);
+        $expected = array(300001 => 1, 400001 => 1, 500001 => 1, 600001 => 1, 700001 => 1);
         $this->assertAttributeEquals($expected, 'reserved_seats', $chart);
     }
 
@@ -128,7 +128,7 @@ class SeatingChartTest extends PHPUnit\Framework\TestCase
         $chart = new SeatingChart(1,10);
         $accessFindSeats = function($group) { return $this->findSeats($group); };
         $accessFindSeats->call($chart, 5);
-        $expected = array(3001 => 1, 4001 => 1, 5001 => 1, 6001 => 1, 7001 => 1);
+        $expected = array(300001 => 1, 400001 => 1, 500001 => 1, 600001 => 1, 700001 => 1);
         $this->assertAttributeEquals($expected, 'reserved_seats', $chart);
     }
 
@@ -140,9 +140,9 @@ class SeatingChartTest extends PHPUnit\Framework\TestCase
                      [1,9], [1,10]]);
         $accessFindSeats = function($group) { return $this->findSeats($group); };
         $accessFindSeats->call($chart, 5);
-        $expected = array(4001 => 1, 2001 => 1, 1001 => 1, 9001 => 1, 7001 => 1,
-                          6001 => 1, 5001 => 1, 3001 => 1, 10001 => 1, 8001 => 1,
-                          3002 => 1, 4002 => 1, 5002 => 1, 6002 => 1, 7002 => 1);
+        $expected = array(400001 => 1, 200001 => 1, 100001 => 1, 900001 => 1, 700001 => 1,
+                          600001 => 1, 500001 => 1, 300001 => 1, 1000001 => 1, 800001 => 1,
+                          300002 => 1, 400002 => 1, 500002 => 1, 600002 => 1, 700002 => 1);
         $this->assertAttributeEquals($expected, 'reserved_seats', $chart);
     }
 
@@ -168,10 +168,10 @@ class SeatingChartTest extends PHPUnit\Framework\TestCase
         $accessFindSeats->call($chart, 3);
         $accessFindSeats->call($chart, 1);
         $accessFindSeats->call($chart, 10);
-        $expected = array(3002 => 1, 4001 => 1, 4002 => 1, 5001 => 1, 5002 => 1,
-                          5003 => 1, 6001 => 1, 6002 => 1, 6003 => 1, 7001 => 1,
-                          7002 => 1, 7003 => 1, 8001 => 1, 9001 => 1,
-                          9003 => 1, 10003 => 1);
+        $expected = array(300002 => 1, 400001 => 1, 400002 => 1, 500001 => 1, 500002 => 1,
+                          500003 => 1, 600001 => 1, 600002 => 1, 600003 => 1, 700001 => 1,
+                          700002 => 1, 700003 => 1, 800001 => 1, 900001 => 1,
+                          900003 => 1, 1000003 => 1);
         $this->assertAttributeEquals($expected, 'reserved_seats', $chart);
     }
 
