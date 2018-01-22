@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-require "seating_chart.php";
+require "SeatingChart.php";
 
 class SeatingChartTest extends PHPUnit\Framework\TestCase
 {
