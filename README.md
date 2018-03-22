@@ -1,5 +1,7 @@
 ### Purpose
 
+This is a toy; it might be useful but is not intended for use.
+
 Given an (optional) initial string of reservations and groups of various sizes thereafter, keep track of a venue's seating chart. Given the size of a group, find optimal (distance from stage center) seats for the group and reserve those seats.
 
 ### Dependencies
@@ -68,15 +70,5 @@ $ phpunit DriverTest.php
 |-- driver.php  
 |-- driver-helpers.php  
 |-- DriverTest.php  
-|  
-|-- test_data
 
-### Implementation Thoughts
-
-The seating chart stores 1 to indicate a reservation. A separate reservation object with details like name, date, etc, would be ideal, but was outside the scope of the assignment.
-
-Visiting every seat to find the n consecutive best, at a cost of O(k) where k = number of seats, is not the most performant algorithm. It could be sped up, for example, by tracking capacity on a per-row basis, reducing checks on those rows to O(1), or by, once a candidate group of seats are found, searching only for better seats.
-
-Considering the problem domain (largest venues in the world are < 300,000 seats), this algorithm is unlikely to be the bottleneck. Further optimization makes the code less maintainable and should wait until demonstrated need.
-
-An easily foreseeable enhancement is allowing users to select their choice of seats. This algorithm needs a few minor alterations to return a list of every possible location where a group of x could sit together.
+**Code ©2018, Seamus Johnston, all rights reserved except as required by upstream licenses**
